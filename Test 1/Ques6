@@ -1,0 +1,36 @@
+
+public class solution {
+
+	public static boolean splitArray(int input[]) {
+		/* Your class should be named solution
+		* Don't write main().
+		* Don't read input, it is passed as function argument.
+		* Return output and don't print it.
+		* Taking input and printing output is handled automatically.
+		*/
+		return arr(input,0,0,0);
+	}
+	public static boolean arr(int arr[], int si, int lsum, int rsum){
+		if (si == arr.length) 
+        {
+            return lsum == rsum;
+        }
+         
+    	if (arr[si] % 5 == 0)
+        {
+            lsum += arr[si];
+        }
+        else if (arr[si] % 3 == 0) 
+        {
+            rsum += arr[si]; 
+        }
+        else
+        {
+            return arr(arr,si+1, lsum+arr[si], rsum)  || arr(arr,si+1,lsum,rsum+arr[si]);
+        }
+         
+    	return arr(arr,si+1,lsum,rsum); 
+	}
+	
+
+}
