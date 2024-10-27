@@ -1,0 +1,46 @@
+/*
+
+    Following is the Node class already written for the Linked List
+
+    class Node<T> {
+        T data;
+        Node<T> next;
+    
+        public Node(T data) {
+            this.data = data;
+        }
+    }
+
+*/
+
+public class Solution {
+
+	public static Node<Integer> swapNodes(Node<Integer> head, int i, int j) {
+		//Your code goes here
+        int k=0;
+        if(head==null || head.next==null){
+            return head;
+        }
+        Node<Integer> first=null,second=null,current=head;
+        while(current!=null){
+            if(k==i){
+               first=current;
+            }
+            else if(k==j){
+                second=current;
+            }
+            current=current.next;
+            k++;
+
+        }
+        if(first==null || second==null || i==j){
+            return head;
+        }
+        int temp=first.data;
+        first.data=second.data;
+        second.data=temp;
+
+        return head;
+	}
+
+}
